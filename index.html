@@ -1,6 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 6</title>
+
+    <link rel="stylesheet" href="CSS/Index.css">
+</head>
+<body>
+    <h1>ELEVATOR PROJECT</h1>
+    <p1>FLOOR</p>
+    <h2>FLOOR</h2>
+
+    <script>
+        var toggle = false;
+        function changeImage(button_num) {
+            if (toggle == true){
+                document.getElementById("button"+button_num).src = "Images/ToothlessStare.png";
+                toggle = false;
+            } else {
+                document.getElementById("button"+button_num).src = "Images/ToothlessSmile.png";
+                toggle = true;
+            }
+        }
+        </script>
+
+    <div class="container">
+        <img id="button1" src="Images/ToothlessStare.png" width="200" onclick="changeImage(1)">
+        <img id="button2" src="Images/ToothlessStare.png" width="200" onclick="changeImage(2)">
+        <img id="button3" src="Images/ToothlessStare.png" width="200" onclick="changeImage(3)">
+    </div>
+
+    <form action="php/login.php" method="get" id ="Login">
+        <h4>Log In</h4>
+        <p>User:
+            <input type="text" name="Username" required>
+        </p>
+
+        <p>Pass:
+            <input type="text" name="Password" required>
+        </p>
+        <input type="submit" value="Log In"/>
+        <p><a href="Logbook Brendan/LBBBIndex.html">LogBook Brendan</a></p>
+    </form>
+</body>
+</html>
 	<title> Proj6 </title>
 </head>
 <body>
