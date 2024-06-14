@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 6</title>
 
+    <link rel="stylesheet" href="CSS/Default.css">
     <link rel="stylesheet" href="CSS/Index.css">
 </head>
 <body>
@@ -25,12 +26,13 @@
             document.getElementById("button"+button_num).src = "CSS/images/ButtonGreen.png";
         }
     </script>
-    <div class="container">
+    <section class="container">
         <img id="button1" src="CSS/images/ButtonGreen.png" width="100" onclick="changeImage(1)">
         <img id="button2" src="CSS/images/ButtonRed.png" width="100" onclick="changeImage(2)">
         <img id="button3" src="CSS/images/ButtonRed.png" width="100" onclick="changeImage(3)">
-    </div>
+    </section>
 
+    <section>
     <form action="php/login.php" method="post">
         <h3>Please log in</h3>
         <div>
@@ -52,19 +54,20 @@
     <script src="Js/eventListenersIndex.js"></script>
     <br />
 
-    <p><a href="RequestAccess.html"><button class = RequestAcessButton>Request Acess</button></a></p>
-
+    <p><a href="RequestAccess.html"><button class = RequestAcessButton></button></a></p>
+</section>
+    <section>
 	<ul>
-<<<<<<< HEAD
-=======
         <li><a href="Logbook Brendan/LBBBIndex.html">LogBook Brendan</a></li>
 		<li><a href="Gantt/Gantt.html">Gantt chart</a></li>
->>>>>>> origin/b1
         <li><a href="Logbook Brendan/LBBBIndex.html">Brendan's Logbook</a>
 		<li><a href="MDunk/Index.html">Mdunk's Page</a> </li>
         <li><a href="TestPlan/TestPlan.html">Test Plan</a></li>
         <li><a href="About.html">About</a></li>
 	</ul>
+    </section>
+
+<section>
     <h3>Elevator Music</h3>
     
     <embed src="Music/himb.mp3" autoplay="true" src="Music/himb.mp3">
@@ -80,6 +83,7 @@
     document.getElementById("datetime").innerHTML = datetime;
     </script>
     <p>&copy; Brendan Burdett</p>
+</section>
 </div>
 
 </body>
