@@ -1,0 +1,32 @@
+CAN Section
+	floor req from nodes
+	floor req to DB
+	floor req from DB to arduino
+	current floor from arduino (recv over can)
+	current floor to nodes
+	current floor to DB (also xor floors with cur_floor_mask)
+	Store going up or down
+		if up
+			if floors > cur_floor_mask
+				goto next floor up
+			else if
+				floors < cur_floor_mask
+				goto next floor down
+				set dir down
+		esle if down
+			if floors < cur_floor_mask
+				goto next floor down
+			else if
+				floors > cur_floor_mask
+				goto next floor up
+				set dir up
+
+Socket
+	recv int floor req, puts in DB (floors | floor_req_mask)
+	send int current floor (polling 1s, only send if != old)
+
+DB
+	stores floor request as bits xxx
+	stores current floor as byte
+	stores direction bit
+		if true = going up

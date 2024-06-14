@@ -1,29 +1,125 @@
+   body{
+        background-position: 20px 20px, 0px 0px;
+        background-size: 70px 70px, 100% 100%;
+        min-height: 10vh, 100vh;
+    }
+
+    h1{    
+        font-size: 20px;
+        text-decoration: underline;
+    }
+
+    h2{    
+        font-size: 15px;
+        text-decoration: underline;
+    }
+
+    h3{
+        font-size: 12px;
+    }
+
+    p{
+        font-size: 10px;
+    }
+
+@media (min-width: 768px){
+    body{
+        background-position: 20px 20px, 0px 0px;
+        background-size: 100px 100px, 100% 100%;
+        min-height: 10vh, 100vh;
+    }
+
+    h1{    
+        font-size: 40px;
+        text-decoration: underline;
+    }
+
+    h2{    
+        font-size: 20px;
+        text-decoration: underline;
+    }
+
+    h3{
+        font-size: 17px;
+    }
+
+    p{
+        font-size: 15px;
+    }
+
+}
+
+@media (min-width: 992px){
+    body{
+        background-position: 20px 20px, 0px 0px;
+        background-size: 150px 150px, 100% 100%;
+        min-height: 10vh, 100vh;
+    }
+
+    h1{    
+        font-size: 60px;
+        text-decoration: underline;
+    }
+
+    h2{    
+        font-size: 30px;
+        text-decoration: underline;
+    }
+
+    h3{
+        font-size: 25px;
+    }
+    
+    p{
+        font-size: 20px;
+    }
+
+}
+
+@media (min-width: 1200px){
+    body{
+        background-position: 20px 20px, 0px 0px;
+        background-size: 200px 200px, 100% 100%;
+        min-height: 10vh, 100vh;
+    }
+
+    h1{    
+        font-size: 80px;
+        text-decoration: underline;
+    }
+
+    h2{    
+        font-size: 40px;
+        text-decoration: underline;
+    }
+
+    h3{
+        font-size: 35px;
+    }
+
+    p{
+        font-size: 30px;
+    }
+
+}
+
+
 body{
-    background-image: url('images/GroupLogoElevatorProject.jpg');
+    background-image: url('../Images/GroupLogo.jpg'), url('../Images/Background.png');
+    background-repeat: no-repeat;
 }
 
-h1{
-    position:relative; top: -50px; left:480px; margin-left:0px; margin-right:0px;
-    font-size: 80px;
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
 }
 
-p1{
-    position:relative; top: -90px; left:480px; margin-left:0px; margin-right:0px;
-    text-decoration: underline;
+.RequestAcessButton:hover[type="submit"] 
+{
+	background: rgb(255, 165, 165);
 }
 
-h2{
-    position:relative; top: 120px; left:0px; margin-left:0px; margin-right:0px;
-    font-size: 40px;
-    text-decoration: underline;
-}
-form{
-    position:relative; top: 50px; left: -480px; margin-left:0px; margin-right:0px;
-}
-
-.container {
-    position:relative; top: 80px; left: 0px; margin-left:0px; margin-right:0px;
-    height: 200px;
-    width: 800px;
-
+.RequestAcessButton[type="submit"]:active{
+    background: rgb(138, 115, 255);
 }

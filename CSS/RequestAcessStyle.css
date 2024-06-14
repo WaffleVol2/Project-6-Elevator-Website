@@ -1,0 +1,40 @@
+body{
+    background-color: bisque;
+}
+
+fieldset{
+    display: inline;
+}
+
+.subBoxlabel{
+    color: white;
+    background-color: rgb(96, 145, 180);
+    border-radius: 5px;
+}
+
+.subBox{
+    font-weight: bold;
+    display: block;
+    margin: 1.0em auto;
+    text-align: right;
+}
+
+input:hover[type="submit"] 
+{
+	background: rgb(255, 165, 165);
+}
+
+input[type="submit"]:active{
+    background: rgb(138, 115, 255);
+}
+
+textarea{
+    position: relative;
+    text-align: left;
+    height: 250px;
+    width: 400px;
+    /*background-image: url(https://media.discordapp.net/attachments/790744499411484672/1250838888172359732/FB_IMG_1718139431333.jpg?ex=666c65fe&is=666b147e&hm=21d42244abad3db814825eb3fcf82075e267867c0733cc046c4dadf8eacdd76e&=&format=webp&width=1876&height=1252);*/
+    background-repeat: no-repeat;
+    background-size: 200px ;
+    background-position: 5px 115px;
+}
