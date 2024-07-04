@@ -1,0 +1,58 @@
+body{
+    background-color: rgb(230, 180, 104);
+}
+
+fieldset{
+    width: 80%;
+    text-align: left;
+    display: inline;
+    border-radius: 20px;
+}
+
+.subBoxlabel{
+    font-size: larger;
+    color: white;
+    background-color: rgb(96, 145, 180);
+    border-radius: 5px;
+}
+
+.subBox{
+    font-weight: bold;
+    display: block;
+    margin: 1.0em auto;
+    text-align: left;
+}
+
+input:hover[type="submit"] 
+{
+	background: rgb(255, 165, 165);
+}
+
+input[type="submit"]:active{
+    background: rgb(138, 115, 255);
+}
+
+textarea{
+    position: relative;
+    text-align: left;
+    height: 250px;
+    width: 400px;
+    background-repeat: no-repeat;
+    background-size: 200px ;
+    background-position: 5px 115px;
+}
+
+.submitButton{
+
+    text-align: right;
+}
+.center {
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+}
+
+.submitButton{
+
+    float: right;
+}

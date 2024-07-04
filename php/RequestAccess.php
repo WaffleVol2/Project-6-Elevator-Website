@@ -1,4 +1,16 @@
-<?php
+<?php 
+  
+// Read the JSON file  
+$json = file_get_contents('myfile.json'); 
+  
+// Decode the JSON file 
+$json_data = json_decode($json,TRUE); 
+  
+// Display data 
+//print_r($json_data); 
+echo $username = $json_data['0']['username'];
+echo $password = $json_data['1']['password'];
+
 $submitted = !empty($_POST);
 ?>
 <!DOCTYPE html>
@@ -16,6 +28,9 @@ $submitted = !empty($_POST);
 			<li><b>Faculty / Student</b>: <?php echo $_POST['fac_or_student']; ?></li>
 			<li><b>Involvement</b>: <?php echo $_POST['involvement']; ?></li>
 			<li><b>Other comments</b>: <?php echo $_POST['comments']; ?></li>
+
+			<li><b>Username</b>: <?php echo $username; ?></li>
+			<li><b>Password</b>: <?php echo $password; ?></li>
 		</ul>
 	</body>
 </html>
