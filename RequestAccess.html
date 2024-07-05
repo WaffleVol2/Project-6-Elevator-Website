@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/RequestAcessStyle.css">
+    <title>Form: Request Access</title>
+
+    <link rel="stylesheet" href="CSS/Default.css">
+</head>
+<body>
+
+    <h1>Request Access</h1>
+    <form id="reqAccess" action="php/RequestAccess.php" method="post">
+    <fieldset>
+        <legend class="subBoxlabel">Contact Details</legend>
+        <div class="subBox">
+            <p><label></label>First Name: <input id="fname" type="text" name="firstname" /> </label></p>
+            <a id="firstNameFeedback"></a>
+            <p><label></label>Last Name:  <input id="lname" type="text" name="lastname" /> </label></p>
+            <a id="lastNameFeedback"></a>
+            <p><label></label>Email:      <input type="text" name="email" /> </label></p>
+            <p><label></label>Website:    <input type="text" name="website"/> </label></p>
+            <p><label></label>Birth date: <input type="date" name="birthdate" /> </label></p>
+            <label><input type="radio" name="fac_or_student" value="faculty" /> Faculty</label>
+          <label><input type="radio" name="fac_or_student" value="student" /> Student</label>
+        </div>
+    </fieldset>
+    
+    <p>Tell us a bit about yourself</p>
+    <textarea name="info" id="textboxinfo" maxlength="180" placeholder="Please enter your comments here..."></textarea>
+
+
+    <div class="textareaContainer">
+    <input class="submitButton" type ="submit" value="Submit Request" class="button">
+    </div>
+
+    <div>
+        <p>Characters Left:</p>
+        <p id="feedback"></p>
+    </div>
+</form>
+
+    <script src="Js/eventListenersRequestAccess.js"></script>
+    <br />
+    
+    <p class="Copyright">Copyright &copy; 2024 Brendan Burdett</p>
+</body>
+</html>

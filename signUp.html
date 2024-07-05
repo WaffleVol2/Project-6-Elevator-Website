@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/topNav.css">
+    <link rel="stylesheet" href="CSS/signUp.css">
+    <title>Form: Sign up</title>
+</head>
+<body>
+    <div class="topnav">
+        <p class="title">Project Website Sign Up</p>
+        <a href="index.html">Login</a>
+        <a class="active" href="signUp.html">Sign Up</a>
+      </div>
+
+      <div class = "center">
+    
+    <form id="signUp" action="php/addcredentials.php" method="post">
+    <fieldset>
+        <legend class="subBoxlabel">Sign up</legend>
+        <div class="subBox">
+            <p>Username:</p>
+            <input id="uname" type="text" class="text_input" name="uname" /> </label>
+            <a id="userNameFeedback"></a>
+            <p>Password:</p>
+            <input id="pword" type="password" class="text_input_password" name="pword" /> </label>
+            <a id="passwordFeedback"></a>
+        </div>
+        <div class="textareaContainer">
+            <button id="addMeButton" class="submitButton" type="submit" >add me</button>
+            </div>
+    </fieldset>
+</form>
+
+</html>
+
+    <div>
+        <p>Error Messages:</p>
+        <p id="feedback"></p>
+    </div>
+
+    <script src="Js/eventListenersSignup.js"></script>
+    <br />
+</div>
+</body>
+</html>

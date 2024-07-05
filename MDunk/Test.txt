@@ -1,0 +1,5 @@
+5/16/24
+* Found .js gantt library; frappe-gantt
+* Added a personal section to the website, if you are reading this you are already here.
+* Looking into moving webserver over to node.js so that the front and back-end will both be handled by js.
+* Selected MCU for LoRa gateway. Following reference design to develop a module that can go on different carrier boards. First board will have LoRa radio, ETH, CAN, and USB only.
