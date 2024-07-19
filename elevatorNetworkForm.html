@@ -1,0 +1,31 @@
+<html>
+    <head>
+
+        <meta name="author" content="Brendan Burdett">
+        <meta name="description" content="Home Page for elevator operation and all sub pages">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project 6</title>
+    
+        <link rel="stylesheet" href="CSS/Index.css">
+    </head>
+    <div class="center">
+    <body>
+        <h2>Update, delete or add data to the database</h2>
+        <form action="main.php" method="post">
+            node ID: <input type='text' name='nodeID' /><em> - Use this to select a row for update/delete</em><br/>
+            status: <input type='text' name='status' /><br/>
+            currentFloor: <input type='text' name="currentFloor" /><br/>
+            requestedFloor: <input type="text" name="requestedFloor" /><br/>
+            otherInfo: <input type="text" name="otherInfo" /><br />
+            <input type="submit" value="INSERT" name="insert" />
+            <input type="submit" value="DELETE" name="delete" />
+            <input type="submit" value="UPDATE" name="update" />
+            <input type="submit" value="Floor1" name="floor1" />
+            <input type="submit" value="Floor2" name="floor2" />
+            <input type="submit" value="Floor3" name="floor3" />
+            
+        </form>
+    </body>
+</div>
+</html>
