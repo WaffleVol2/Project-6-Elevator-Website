@@ -20,16 +20,16 @@
 
       <div class = "center">
     
-    <form id="Login" action="php/login.php" method="post">
+<form action="authenticate.php" method="post">
     <fieldset>
         <legend class="subBoxlabel">login</legend>
         <div class="subBox">
-            <p>Username:</p>
-            <input id="uname" type="text" class="text_input" name="uname" /> </label>
-            <a id="userNameFeedback"></a>
-            <p>Password:</p>
-            <input id="pword" type="password" class="text_input" name="pword" /> </label>
-            <a id="passwordFeedback"></a>
+            
+                <p>Username: </p>
+                <input type="text" name="username"/> <br />
+                <p>Password: </p>
+                <input type="password" name="password" /><br />
+
         </div>
         <div class="textareaContainer">
             <button id="loginButton" class="submitButton" type="submit" >login</button>

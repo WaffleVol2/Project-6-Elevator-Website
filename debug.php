@@ -17,6 +17,12 @@
         $path = 'mysql:host=' . $host . ';dbname=' . $database; 
         $user = 'bren';  // Could be a variable from $_SESSION['username'] if the database has been set up with permissions for another user
         
+            //////////////////////////HISTORY TABLE///////////////////
+        // Initialize variables
+        //$host = '192.168.1.203'; //for wireless testing
+        //$password = 'ese'; 
+        $tablenameHis = 'elevatorHistory'; 
+        
 
         // Connect to database and make changes
         $db = connect($path, $user, $password);
@@ -35,7 +41,7 @@
         if(isset($_POST['otherInfo'])) { $otherInfo = $_POST['otherInfo']; }
         
         // Display welcome and form
-        require 'elevatorNetworkForm.html'; 
+        require 'debug.html'; 
         if(isset($_POST['insert'])) {
             echo "You pressed INSERT <br>"; 
             insert($path, $user, $password, $current_date, $current_time, $status, $currentFloor, $requestedFloor, $otherInfo);
@@ -43,62 +49,73 @@
         } elseif(isset($_POST['update'])) {
             echo "You pressed UPDATE <br>";
             update($path, $user, $password, $tablename, $nodeID, $status, $currentFloor, $requestedFloor, $otherInfo);
-			
-        } elseif(isset($_POST['floor1'])) {
-            echo "You pressed Floor1 <br>";
-            update($path, $user, $password, $tablename, '1', '1', '1', '1', "floor Requested 1");
-            insertHistory($path, $user, $password, $current_date, $current_time, '1', '1', '1', "floor Requested 1");
-            $currentFloor = '1';
-            //echo $currentFloor;
-			
-        } elseif(isset($_POST['floor2'])) {
-            echo "You pressed Floor 2 <br>";
-            update($path, $user, $password, $tablename, '1', '1', '2', '2', "floor Requested 2");
-            insertHistory($path, $user, $password, $current_date, $current_time, '1', '2', '2', "floor Requested 2");
-            $currentFloor = '2';
-            //echo $currentFloor;
-        
-        } elseif(isset($_POST['floor3'])) {
-            echo "You pressed Floor 3 <br>";
-            update($path, $user, $password, $tablename, '1', '1', '3', '3', "floor Requested 3");
-            insertHistory($path, $user, $password, $current_date, $current_time, '1', '3', '3', "floor Requested 3");
-            $currentFloor = '3';
-            //echo $currentFloor;
-
-        } elseif(isset($_POST['sabMode'])) {
-            echo "You pressed sabMode <br>";
-            header('Refresh: 2; URL = sabbathMode.php');
 
         } elseif(isset($_POST['delete'])) {
             echo 'You pressed DELETE <br>';
             deleteDatabase($path, $user, $password, $tablename, $nodeID);
         } 
         // Display content of database
-        //showtable($path, $user, $password, $tablename);
-        echo $currentFloor;
+        echo "<h3>Content of ElevatorNetwork table</h3>";
+        showtable($path, $user, $password, $tablename);
+        
+        echo "<h3>Content of ElevatorHistory table</h3>";
+        showtable($path, $user, $password, $tablenameHis);
+
+        //require 'chartJS.html';
+        // Read
+        $query = "SELECT * FROM $tablenameHis GROUP BY nodeID ORDER BY nodeID";  // Note: Risk of SQL injection
+        $rows = $db->query($query); 
+        foreach ($rows as $row) {
+            //echo $row['requestedFloor'] . "<br/>";
+            if($row['requestedFloor'] == '1'){
+                $requestFloor1++;
+            }
+            else if($row['requestedFloor'] == '2'){
+                $requestFloor2++;
+            }
+            else if($row['requestedFloor'] == '3'){
+                $requestFloor3++;
+            }
+        }  
+echo $requestFloor1 . 'floor::' . $requestFloor2 . 'Floor:::' . $requestFloor3;
+        
         } else {
             echo "<p>You are not authorized!!! Go away!!!!!</p>";
         }
 ?>
 
-
 <html>
+
+<div>
+    <canvas id="myChart"></canvas>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
   <script>
-    currentFlr = "<?php echo "$currentFloor"?>";
-
-    const floor1Audio = new Audio('floor1.wav');
-    const floor2Audio = new Audio('floor2.wav');
-    const floor3Audio = new Audio('floor3.wav');
-
-    if(currentFlr == '1'){
-        floor1Audio.play();
-    }
-    else if(currentFlr == '2'){
-        floor2Audio.play();
-    }
-    else if(currentFlr == '3'){
-        floor3Audio.play();
-    }
+    flr1 = "<?php echo "$requestFloor1"?>";
+    flr2 = "<?php echo "$requestFloor2"?>";
+    flr3 = "<?php echo "$requestFloor3"?>";
+    const ctx = document.getElementById('myChart');
+  
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Floor 1', 'Floor 2', 'Floor 3'],
+        datasets: [{
+          label: 'Times Floor Was Requested',
+          data: [flr1, flr2, flr3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
   </script>
 
 </html>

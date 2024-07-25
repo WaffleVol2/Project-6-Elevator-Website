@@ -18,7 +18,7 @@ foreach ($json_data as $item) {
 		$_SESSION['valid'] = true;
         $_SESSION['timeout'] = time();
         $_SESSION['username'] = $_POST['username'];
-		header("Location: http://localhost/Project_6/main.html");
+		header("Location: http://localhost/Project_6/main.php");
 exit();
     }
 $i ++;

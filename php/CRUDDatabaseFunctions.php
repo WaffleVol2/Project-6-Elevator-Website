@@ -27,9 +27,25 @@ function insert($path, $user, $password, $current_date, $current_time, $status, 
     echo "worked";
 }
 
+function insertHistory($path, $user, $password, $current_date, $current_time, $status, $currentFloor, $requestedFloor, $otherInfo) {
+    $db = connect($path, $user, $password);
+    $query = 'INSERT INTO elevatorHistory(date, time, status, currentFloor, requestedFloor, otherInfo) VALUES
+    (:date, :time, :status, :currentFloor, :requestedFloor, :otherInfo)';
+    $params = [
+        'date' => $current_date['CURRENT_DATE()'],
+        'time' => $current_time['CURRENT_TIME()'],
+        'status' => $status, 
+        'currentFloor' => $currentFloor,
+        'requestedFloor' => $requestedFloor, 
+        'otherInfo' => $otherInfo
+    ];
+    $statement = $db->prepare($query);
+    $result = $statement->execute($params); 
+    echo "worked";
+}
+
 // Read
 function showtable(string $path, string $user, string $password, $tablename) {
-    echo "<h3>Content of ElevatorNetwork table</h3>";
     $db = connect($path, $user, $password); 
     $query = "SELECT * FROM $tablename GROUP BY nodeID ORDER BY nodeID";  // Note: Risk of SQL injection
     $rows = $db->query($query); 
@@ -39,6 +55,7 @@ function showtable(string $path, string $user, string $password, $tablename) {
              . $row['currentFloor'] . " | " . $row['requestedFloor'] . " | " . $row['otherInfo'] . "<br>";
     }
 }
+
 
 // Update
 function update(string $path, string $user, string $password, string $tablename, int $node_ID, int $new_status, int $new_currentFloor, 
@@ -55,7 +72,7 @@ function update(string $path, string $user, string $password, string $tablename,
     $statement->execute();                      // Execute prepared statement
 }
 // Delete
-function delete(string $path, string $user, string $password, string $tablename, int $node_ID) : void {
+function deleteDatabase(string $path, string $user, string $password, string $tablename, int $node_ID) : void {
     $db = connect($path, $user, $password);
     $query = 'DELETE FROM ' . $tablename . ' WHERE nodeID = :id' ;    // Note: Risks of SQL injection
     $statement = $db->prepare($query); 
